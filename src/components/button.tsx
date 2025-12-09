@@ -2,30 +2,50 @@ import { cva, type VariantProps } from "class-variance-authority";
 import Icon from "./icon";
 import Text from "./text";
 
-export const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-full",
+export const buttonVariants = cva(
+  `
+    flex items-center justify-center cursor-pointer
+    transition rounded-lg group gap-2
+  `,
   {
     variants: {
       variant: {
-        primary: "bg-green-light",
-        secondary: "bg-pink-light",
+        primary: "bg-gray-200 hover:bg-pink-light",
       },
       size: {
-        sm: "py-0.5 px-2",
+        md: "h-14 py-4 px-5",
+      },
+      disabled: {
+        true: "opacity-50 pointer-events-none",
       },
     },
     defaultVariants: {
       variant: "primary",
-      size: "sm",
+      size: "md",
+      disabled: false,
     },
   }
 );
 
-export const badgeTextVariants = cva("", {
+export const buttonIconVariants = cva("transition", {
   variants: {
     variant: {
-      primary: "text-green-dark",
-      secondary: "text-pink-dark",
+      primary: "fill-pink-base",
+    },
+    size: {
+      md: "w-5 h-5",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});
+
+export const buttonTextVariants = cva("", {
+  variants: {
+    variant: {
+      primary: "text-gray-400",
     },
   },
   defaultVariants: {
@@ -33,22 +53,35 @@ export const badgeTextVariants = cva("", {
   },
 });
 
-interface BadgeProps
-  extends React.ComponentProps<"div">,
-    VariantProps<typeof badgeVariants> {}
+interface ButtonProps
+  extends Omit<React.ComponentProps<"button">, "size" | "disabled">,
+    VariantProps<typeof buttonVariants> {
+  icon?: React.ComponentProps<typeof Icon>["svg"];
+}
 
-export default function Badge({
+export default function Button({
   variant,
   size,
+  disabled,
   className,
   children,
+  icon: IconComponent,
   ...props
-}: BadgeProps) {
+}: ButtonProps) {
   return (
-    <div className={badgeVariants({ variant, size, className })} {...props}>
-      <Text variant="body-sm-bold" className={badgeTextVariants({ variant })}>
+    <button
+      className={buttonVariants({ className, disabled, size, variant })}
+      {...props}
+    >
+      {IconComponent && (
+        <Icon
+          svg={IconComponent}
+          className={buttonIconVariants({ variant, size })}
+        />
+      )}
+      <Text variant="body-md-bold" className={buttonTextVariants({ variant })}>
         {children}
       </Text>
-    </div>
+    </button>
   );
 }
