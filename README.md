@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# 📝 React ToDo List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de **lista de tarefas (ToDo List)** desenvolvida em **React + TypeScript**, com foco em organização, componentização e boas práticas de front-end moderno.
 
-Currently, two official plugins are available:
+O projeto permite criar, concluir, editar e remover tarefas, além de exibir métricas simples de produtividade.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📸 Preview
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+![Preview da aplicação](./images/heroimage.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Funcionalidades
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- ✅ Criar novas tarefas  
+- ✏️ Editar tarefas existentes  
+- 🗑️ Remover tarefas  
+- ☑️ Marcar tarefas como concluídas  
+- 📊 Contador de tarefas criadas  
+- 📈 Indicador de tarefas concluídas  
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧠 Conceitos aplicados
+
+- Componentização
+- Estado e imutabilidade
+- Tipagem com TypeScript
+- Props e eventos
+- Condicionais e listas
+- Organização de pastas
+- Boas práticas de UI/UX
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- CSS Modules
+- ESLint
+- Git & GitHub
+
+---
+
+## 📂 Estrutura do projeto
+
+```bash
+src/
+ ├─ components/
+ ├─ styles/
+ ├─ types/
+ ├─ App.tsx
+ └─ main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Como executar o projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Pré-requisitos
+
+- Node.js (LTS)
+- npm ou yarn
+
+### Passo a passo
+
+```bash
+git clone https://github.com/williamdelimacx/react-todo.git
+cd react-todo
+npm install
+npm run dev
 ```
+
+Acesse: http://localhost:5173
+
+---
+
+## 🎯 Objetivo do projeto
+
+Projeto desenvolvido para praticar **React com TypeScript**, reforçando fundamentos do front-end moderno e servindo como **projeto de portfólio**.
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
